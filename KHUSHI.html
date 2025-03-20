@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Flipbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .flipbook {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            border-radius: 10px;
+            transition: transform 1s;
+        }
+        .front {
+            background: linear-gradient(to bottom, #ff9966, #ff5e62);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .middle {
+            background: linear-gradient(to bottom, #fffbd5, #b20a2c);
+            color: white;
+            transform: rotateY(180deg);
+            font-size: 18px;
+            padding: 20px;
+        }
+        .back {
+            background: linear-gradient(to bottom, #56ccf2, #2f80ed);
+            color: white;
+            transform: rotateY(180deg);
+            font-size: 18px;
+            overflow: hidden;
+        }
+        .flipbook:hover .middle {
+            transform: rotateY(0deg);
+        }
+        .flipbook:hover .back {
+            transform: rotateY(360deg);
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: float 5s infinite ease-in-out;
+        }
+        .balloon:nth-child(1) { left: 20%; animation-delay: 0s; }
+        .balloon:nth-child(2) { left: 50%; animation-delay: 1s; }
+        .balloon:nth-child(3) { left: 80%; animation-delay: 2s; }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-300px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="flipbook">
+        <div class="page front">🎂 Happy Birthday Khushi! 🎉<br>Hover to Open</div>
+        <div class="page middle">🥳 "Wishing you a day filled with love, laughter, and joy. May your heart be light and your dreams take flight! Enjoy the whole day..." 💖</div>
+        <div class="page back">🎈 "Life is like a balloon, enjoy the ride!" 🌟
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+    </div>
+</body>
+</html>
+
